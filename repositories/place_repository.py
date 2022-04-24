@@ -15,7 +15,7 @@ def save(place):
 def select_all():
     places = []
 
-    sql = "SELECT * FROM places"
+    sql = "SELECT * FROM places ORDER BY (name)"
     results = run_sql(sql)
 
     for row in results:

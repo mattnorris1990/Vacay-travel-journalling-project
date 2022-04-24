@@ -2,7 +2,6 @@ from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import country_repository, place_repository
 from models.country import Country
 from models.place import Place, update_place_visit_status
-import controllers.countries_controller as countries_controller
 
 places_blueprint = Blueprint("countries/places", __name__)
 
