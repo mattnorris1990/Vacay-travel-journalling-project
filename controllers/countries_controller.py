@@ -32,6 +32,25 @@ def show_country(id):
     country = country_repository.select(id)
     return render_template('/countries/show-country.html', country=country)
 
+@countries_blueprint.route("/countries/<id>/edit")
+def edit_country_page(id):
+    country = country_repository.select(id)
+    return render_template('/countries/edit-country.html', country = country)
+
+@countries_blueprint.route('/countries/<id>/edit', methods = ['POST'])
+def edit_country_form(id):
+    country = country_repository.select(id)
+    name = request.form['country_name']
+    if len(request.form['image']) > 0:
+        image = request.form['image']
+    else:
+        image = country.image
+    country_object = Country(name, image, country.visited, id)
+    country_repository.update(country_object)
+    print(country_object.__dict__)
+    return redirect('/countries')
+
+
 @countries_blueprint.route("/countries/<id>/delete", methods = ['POST'])
 def delete_country(id):
     country_repository.delete(id)
