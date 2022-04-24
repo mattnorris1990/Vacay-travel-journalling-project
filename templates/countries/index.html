@@ -14,7 +14,7 @@
 {% for country in countries %}
     <div class = "country block">
         <p>
-            {{country.name}}
+            <a href="/countries/{{country.id}}">{{country.name}}</a>
         </p>
         <p>
             {% if country.visited == true %}
@@ -24,8 +24,8 @@
             {% endif %}
         </p>
     </div>
-</section>
 
 {% endfor %}
+</section>
 
 {% endblock %}
