@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+<section>
 <p>{{country.name}}</p>
 <p>
     {% if country.visited == true %}
@@ -11,7 +11,7 @@
     {% endif %}
 </p>
 <p>
-    <form action="/countries/{{country.id}}/edit" method="POST">
+    <form action="/countries/{{country.id}}/edit" method="POST" class="button">
         <input type="submit" value="Delete"> 
     </form>
 </p>
@@ -22,5 +22,32 @@
         </button>
     </a>
 </p>
+</section>
+<section class="places list">
+    <h2>Places in {{country.name}}</h2>
+    <div class="place container">
+        {% for place in places %}
+            {% if place.country.id == country.id %}
+
+                <a href="/countries/places/{{place.id}}">
+                    <p>{{place.name}}</p>
+                </a>
+                {% if place.visited == true %}
+                    VISITED!
+                {% else %}
+                    UNVISITED
+                {% endif %}    
+            {% endif %}
+        {% endfor %}
+    </div>
+    <a href="/countries/places/addplace">
+        <button class="button">
+            Add Place
+        </button>
+    </a>
+    
+
+</section>    
+
 
 {% endblock %}

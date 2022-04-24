@@ -30,7 +30,8 @@ def add_country():
 @countries_blueprint.route('/countries/<id>')
 def show_country(id):
     country = country_repository.select(id)
-    return render_template('/countries/show-country.html', country=country)
+    places = place_repository.select_all()
+    return render_template('/countries/show-country.html', country=country, places = places)
 
 @countries_blueprint.route("/countries/<id>/edit")
 def edit_country_page(id):

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/countries/places/addplace" method="post">
+    <div>
+      <label for="place_name">Place name:</label>
+      <input type="text" id="place_name" name="place_name" placeholder="Place name" required autofocus>
+    </div>
+  
+    <div>
+        <label for="image">Image:</label>
+        <input type="url" id="image" name="image">
+    </div>
+    <div>
+        <label for="country">Country:</label>
+        <select name="country_id" id="country_id">
+            {% for country in countries %}
+            <option value="{{ country.id }}">
+                {{ country.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Add Place</button>
+  
+  </form>
+
+
+{% endblock %}
