@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class = "country-list">
+    
+{% for country in countries %}
+    <div class = "country block">
+        <p>
+            {{country.name}}
+        </p>
+        <p>
+            {% if country.visited == true %}
+                VISITED!
+            {% else %}
+                UNVISITED
+            {% endif %}
+        </p>
+    </div>
+</section>
+
+{% endfor %}
+
+{% endblock %}
