@@ -1,8 +1,7 @@
-DROP TABLE IF EXISTS city_entries;
+DROP TABLE IF EXISTS place_entries;
 DROP TABLE IF EXISTS country_entries;
-DROP TABLE IF EXISTS cities;
+DROP TABLE IF EXISTS places;
 DROP TABLE IF EXISTS countries;
-
 
 CREATE TABLE countries (
     id SERIAL PRIMARY KEY,
@@ -11,7 +10,7 @@ CREATE TABLE countries (
     image VARCHAR(255)
 );
 
-CREATE TABLE cities (
+CREATE TABLE places (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
     visited BOOLEAN,
@@ -26,9 +25,9 @@ CREATE TABLE country_entries (
     country_id INT NOT NULL REFERENCES countries(id)
 );
 
-CREATE TABLE city_entries (
+CREATE TABLE place_entries (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     entry_date TIMESTAMP,
-    country_id INT NOT NULL REFERENCES cities(id)
+    place_id INT NOT NULL REFERENCES places(id)
 );

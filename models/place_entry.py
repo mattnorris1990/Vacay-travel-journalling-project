@@ -1,4 +1,4 @@
-class City_Entry:
+class Place_Entry:
 
     def __init__(self, input_title, input_date, input_text):
         self.title = input_title

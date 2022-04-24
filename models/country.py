@@ -7,11 +7,11 @@ class Country:
         self.id = id
         
 
-    def mark_visited(self):
-        if self.visited == False:
-            self.visited = True
-        else:
-            self.visited = False      
+    # def mark_visited(self):
+    #     if self.visited == False:
+    #         self.visited = True
+    #     else:
+    #         self.visited = False      
 
     # def add_image(self, input_image_url):
     #     self.image = input_image_url
