@@ -12,3 +12,36 @@ def save(place):
     place.id = id
     return place
 
+def select_all():
+    places = []
+
+    sql = "SELECT * FROM places"
+    results = run_sql(sql)
+
+    for row in results:
+        country = country_repository.select(row['country_id'])
+        place = Place(row['name'], country, row['image'], row['visited'], row['id'])
+        places.append(place)
+    return places
+
+def select(id):
+    place = None
+    sql = "SELECT * from places WHERE id = %s"
+    values = [id]
+    results = run_sql(sql,values)
+
+    if len(results) > 0:
+        result = results[0]
+        country = country_repository.select(result['country_id'])
+        place = Place(result['name'], country, result['image'], result['visited'], result['id'])
+        return place
+
+def delete_all():
+    sql = "DELETE FROM places"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM places WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+

@@ -4,16 +4,17 @@ from models.place import Place
 import repositories.country_repository as country_repository
 import repositories.place_repository as place_repository
 
-country_repository.delete_all()
+# place_repository.delete_all()
+# country_repository.delete_all()
 
-country1 = Country("France", "images/placeholder_country_image.jpg")
-country_repository.save(country1)
+# country1 = Country("France", "images/placeholder_country_image.jpg")
+# country_repository.save(country1)
 
-country2 = Country("Spain", "images/placeholder_country_image.jpg")
-country_repository.save(country2)
+# country2 = Country("Spain", "images/placeholder_country_image.jpg")
+# country_repository.save(country2)
 
-country3 = Country("Germany", "images/placeholder_country_image.jpg")
-country_repository.save(country3)
+# country3 = Country("Germany", "images/placeholder_country_image.jpg")
+# country_repository.save(country3)
 
 # countries = country_repository.select_all()
 
@@ -31,3 +32,18 @@ country_repository.save(country3)
 
 # place1 = Place("Paris", country1, "images/placeholder_country_image.jpg")
 # place_repository.save(place1)
+
+# place2 = Place("Berlin", country3, "images/placeholder_country_image.jpg")
+# place_repository.save(place2)
+
+# place3 = Place("Hamburg", country3, "images/placeholder_country_image.jpg")
+# place_repository.save(place3)
+
+# places = place_repository.select_all()
+
+# for place in places:
+#     print(place.__dict__)
+
+# place = place_repository.select(2)
+
+# print(place.__dict__)
