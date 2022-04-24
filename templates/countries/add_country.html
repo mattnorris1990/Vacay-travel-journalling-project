@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/addcountry" method="post">
+    <div>
+      <label for="country_name">Country name:</label>
+      <input type="text" id="country_name" name="country_name" placeholder="Country name" required autofocus>
+    </div>
+  
+    <div>
+        <label for="image">Image:</label>
+        <input type="url" id="image" name="image">
+    </div>
+  
+    <button type="submit">Add Country</button>
+  
+  </form>
+
+
+{% endblock %}

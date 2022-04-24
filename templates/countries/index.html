@@ -3,7 +3,14 @@
 {% block content %}
 
 <section class = "country-list">
-    
+    <h2>
+        My Country List
+    </h2>
+    <a href="/addcountry">
+        <button class="button">
+            Add Country
+        </button>
+    </a>
 {% for country in countries %}
     <div class = "country block">
         <p>
