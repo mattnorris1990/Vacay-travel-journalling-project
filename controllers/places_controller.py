@@ -25,4 +25,41 @@ def add_place():
     place_object = Place(name, country, image)
     place_repository.save(place_object)
 
+# I want this to redirect to the show_country route, not sure how
     return redirect ('/countries')
+
+@places_blueprint.route('/countries/places/<id>')
+def show_place(id):
+    place = place_repository.select(id)
+    return render_template('countries/places/show-place.html', place = place)
+
+@places_blueprint.route('/countries/places/<id>/delete', methods = ['POST'])
+def delete_place(id):
+    place_repository.delete(id)
+
+# I want this to redirect to the show_country route, not sure how
+    return redirect('/countries')
+
+@places_blueprint.route('/countries/places/<id>/edit')
+def edit_place_page(id):
+    place = place_repository.select(id)
+    return render_template('countries/places/edit-place.html', place = place)
+
+@places_blueprint.route('/countries/places/<id>/edit', methods = ['POST'])
+def edit_place_form(id):
+    place = place_repository.select(id)
+    name = request.form['place_name']
+    if len(request.form['image']) > 0:
+        image = request.form['image']
+    else:
+        image = place.image
+
+    country_id = place.country.id
+    country = country_repository.select(country_id)
+    
+    place_object = Place(name, country, image, place.visited, id)
+    place_repository.update(place_object)
+
+    return redirect('/countries')
+
+

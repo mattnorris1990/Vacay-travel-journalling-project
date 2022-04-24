@@ -48,7 +48,7 @@ def edit_country_form(id):
         image = country.image
     country_object = Country(name, image, country.visited, id)
     country_repository.update(country_object)
-    print(country_object.__dict__)
+    # print(country_object.__dict__)
     return redirect('/countries')
 
 

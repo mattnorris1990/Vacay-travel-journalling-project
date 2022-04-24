@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+<p>{{place.name}}</p>
+<p>
+    {% if place.visited == true %}
+        VISITED!
+    {% else %}
+        UNVISITED
+    {% endif %}
+</p>
+<p>
+    <form action="/countries/places/{{place.id}}/delete" method="POST" class="button">
+        <input type="submit" value="Delete"> 
+    </form>
+</p>
+<p>
+    <a href="/countries/places/{{ place.id }}/edit">
+        <button class="button">
+            Edit
+        </button>
+    </a>
+</p>
+</section>
+
+
+{% endblock %}

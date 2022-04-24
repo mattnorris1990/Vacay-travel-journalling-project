@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/countries/places/{{ place.id }}/edit" method="post">
+    <div>
+      <label for="place_name">Place name:</label>
+      <input type="text" id="place_name" name="place_name" placeholder="Place name" required autofocus>
+    </div>
+  
+    <div>
+        <label for="image">Image:</label>
+        <input type="url" id="image" name="image">
+    </div>
+  
+    <button type="submit">Update Place</button>
+  
+  </form>
+
+{% endblock %}
