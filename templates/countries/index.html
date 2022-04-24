@@ -18,11 +18,16 @@
         </p>
         <p>
             {% if country.visited == true %}
-                VISITED!
+                <form action="/countries/{{country.id}}/visited" method="POST">
+                <input type="submit" value="&#10003; Visited" class="visited-button">
+                </form>    
             {% else %}
-                UNVISITED
+                <form action="/countries/{{country.id}}/visited" method="POST">
+                <input type="submit" value="&#10060; Unvisited" class="visited-button">
+                </form> 
             {% endif %}
         </p>
+        <hr>
     </div>
 
 {% endfor %}

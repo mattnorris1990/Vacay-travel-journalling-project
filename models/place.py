@@ -7,11 +7,9 @@ class Place:
         self.image = input_image
         self.id = id
 
-    def mark_visited(self):
-        if self.visited == False:
-            self.visited = True
-        else:
-            self.visited == False      
-
-    def add_image(self, input_image_url):
-        self.image = input_image_url
+def update_place_visit_status(place):
+    if place.visited == False:
+        place.visited = True
+    else: 
+        place.visited = False
+    return place

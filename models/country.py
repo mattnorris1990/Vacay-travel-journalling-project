@@ -6,3 +6,9 @@ class Country:
         self.image = input_image
         self.id = id
 
+def update_country_visit_status(country):
+    if country.visited == False:
+        country.visited = True
+    else: 
+        country.visited = False
+    return country

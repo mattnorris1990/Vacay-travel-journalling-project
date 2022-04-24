@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import country_repository, place_repository
 from models.country import Country
-from models.place import Place
+from models.place import Place, update_place_visit_status
 import controllers.countries_controller as countries_controller
 
 places_blueprint = Blueprint("countries/places", __name__)
@@ -61,5 +61,13 @@ def edit_place_form(id):
     place_repository.update(place_object)
 
     return redirect('/countries')
+
+@places_blueprint.route("/countries/places/<id>/visited", methods= ['POST'])
+def update_visited_place(id):
+    place_object = place_repository.select(id)
+    update_place_visit_status(place_object)
+    place_repository.update(place_object)
+    print(place_object)
+    return redirect(request.referrer)
 
 

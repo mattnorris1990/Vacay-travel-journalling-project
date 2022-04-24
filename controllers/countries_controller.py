@@ -1,7 +1,8 @@
-from flask import Flask, render_template, Blueprint, request, redirect
+from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import country_repository, place_repository
-from models.country import Country
+from models.country import Country, update_country_visit_status
 from models.place import Place
+import controllers.places_controller as places_controller
 
 countries_blueprint = Blueprint("countries", __name__)
 
@@ -56,3 +57,13 @@ def edit_country_form(id):
 def delete_country(id):
     country_repository.delete(id)
     return redirect('/countries')
+
+
+# I want this to redirect to the show_country route, not sure how
+@countries_blueprint.route("/countries/<id>/visited", methods= ['POST'])
+def update_visited_country(id):
+    country_object = country_repository.select(id)
+    update_country_visit_status(country_object)
+    country_repository.update(country_object)
+    
+    return redirect(request.referrer)
