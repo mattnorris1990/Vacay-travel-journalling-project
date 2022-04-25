@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/countries/places/entries/addentry" method="post">
+    <div>
+        <label for="entry_title">Title:</label>
+        <input type="text" id="entry_title" name="entry_title" placeholder="Title" required>
+      </div>
+
+    <div>
+        <label for="entry_image">Image:</label>
+        <input type="text" id="image" name="image" placeholder="insert URL">
+      </div>
+
+    <div>
+        <label for="place">Place:</label>
+        <select name="place_id" id="place_id">
+            {% for place in places %}
+            <option value="{{ place.id }}">
+                {{ place.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div>
+        <label for="entry_text">Post:</label>
+        <input type="textarea" id="entry_text" name="entry_text" placeholder="Text Here" required>
+      </div>
+
+    <button type="submit">Add Entry</button>
+{% endblock %}

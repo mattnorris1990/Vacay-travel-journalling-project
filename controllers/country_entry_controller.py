@@ -20,6 +20,11 @@ def add_country_entry_form():
     country_id = request.form['country_id']
     country = country_repository.select(country_id)
 
+    if len(request.form['image']) > 0:
+        image = request.form['image']
+    else:
+        image = "images/placeholder_country_image.jpg"
+
     text = request.form['entry_text']
 
     country_entry_object = Country_Entry(title, text, image, country)

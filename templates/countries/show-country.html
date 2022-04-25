@@ -61,13 +61,15 @@
     <h2>My entries for {{ country.name }}</h2>
 
     {% for entry in entries %}
-       <p>
-           <a href="/countries/entries/{{ entry.id }}">{{ entry.title }}</a>
-        </p>
-        <p>
-            {{ entry.text }}
-        </p>
-        <hr>
+        {% if country.id == entry.country.id %}
+            <p>
+                <a href="/countries/entries/{{ entry.id }}">{{ entry.title }}</a>
+                </p>
+                <p>
+                    {{ entry.text }}
+                </p>
+                <hr>
+        {% endif %}
     {% endfor %}
 
     <a href="/countries/entries/addentry">

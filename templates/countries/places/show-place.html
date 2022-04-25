@@ -30,5 +30,26 @@
 </p>
 </section>
 
+<section class = "Entry List">
+    <h2>My entries for {{ place.name }}</h2>
+
+    {% for entry in entries %}
+        {% if place.id == entry.place.id %}
+        <p>
+            <a href="/countries/places/entries/{{ entry.id }}">{{ entry.title }}</a>
+        </p>
+        <p>
+            {{ entry.text }}
+        </p>
+        <hr>
+        {% endif %}
+    {% endfor %}
+
+    <a href="/countries/places/entries/addentry">
+        <button class="button">
+            Add Entry
+        </button>
+    </a>
+</section>
 
 {% endblock %}

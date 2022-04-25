@@ -1,5 +1,5 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
-from repositories import country_repository, place_repository
+from repositories import country_repository, place_repository, place_entry_repository
 from models.country import Country
 from models.place import Place, update_place_visit_status
 
@@ -29,7 +29,8 @@ def add_place_form():
 @places_blueprint.route('/countries/places/<id>')
 def show_place(id):
     place = place_repository.select(id)
-    return render_template('countries/places/show-place.html', place = place)
+    entries = place_entry_repository.select_all()
+    return render_template('countries/places/show-place.html', place = place, entries = entries)
 
 @places_blueprint.route('/countries/places/<id>/delete', methods = ['POST'])
 def delete_place(id):
