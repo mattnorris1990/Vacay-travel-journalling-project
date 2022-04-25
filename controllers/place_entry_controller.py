@@ -30,3 +30,36 @@ def add_place_entry_form():
     place_entry_repository.save(place_entry_object)
 
     return redirect (f'/countries/places/{ place_id }')
+
+@placeentry_blueprint.route('/countries/places/entries/<id>')
+def show_place_entry(id):
+    entry = place_entry_repository.select(id)
+    return render_template('/countries/places/place-entries/show-entry.html', entry = entry)
+
+@placeentry_blueprint.route('/countries/places/entries/<id>/delete', methods = ['POST'])
+def delete_place_entry(id):
+    entry_object = place_entry_repository.select(id)
+    entry_id = entry_object.place.id
+    place_entry_repository.delete(id)
+
+    return redirect(f'/countries/places/{ entry_id }')
+
+@placeentry_blueprint.route('/countries/places/entries/<id>/edit')
+def edit_place_entry_page(id):
+    entry = place_entry_repository.select(id)
+    return render_template('countries/places/place-entries/edit-entry.html', entry = entry)
+
+@placeentry_blueprint.route('/countries/places/entries/<id>/edit', methods = ['POST'])
+def edit_place_entry_form(id):
+    entry = place_entry_repository.select(id)
+    title = request.form['entry_title']
+    if len(request.form['image']) > 0:
+        image = request.form['image']
+    else:
+        image = entry.image
+    text = request.form['entry_text']
+
+    entry_object = Place_Entry(title, text, image, entry.place, entry.date_stamp, id)
+    place_entry_repository.update(entry_object)
+
+    return redirect(f'/countries/places/entries/{id}')
