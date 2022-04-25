@@ -46,4 +46,14 @@ def delete_all():
     sql = "DELETE FROM country_entries"
     run_sql(sql)
 
+def delete(id):
+    sql = "DELETE FROM country_entries WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+
+def update(country_entry):
+    sql = "UPDATE country_entries SET (title, text_entry, image, country_id) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [country_entry.title, country_entry.text, country_entry.image, country_entry.country.id, country_entry.id]
+    run_sql(sql, values)
+
 

@@ -66,6 +66,10 @@ import repositories.country_entry_repository as country_entry_repository
 # for entry in country_entries:
 #     print(entry.__dict__)
 
-entry = country_entry_repository.select(5)
+# entry = country_entry_repository.select(5)
 
-print(entry.__dict__)
+# print(entry.__dict__)
+
+country_entry1 = Country_Entry("UPDATED TEST TITLE", "This is a test entry UPDATED", "images/placeholder_country_image.jpg", country1, "2022-04-25 10:56:44.587897+01", 5)
+
+country_entry_repository.update(country_entry1)
