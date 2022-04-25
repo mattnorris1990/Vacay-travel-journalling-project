@@ -49,8 +49,7 @@ def edit_country_form(id):
         image = country.image
     country_object = Country(name, image, country.visited, id)
     country_repository.update(country_object)
-    # print(country_object.__dict__)
-    return redirect('/countries')
+    return redirect(f'/countries/{ country_object.id }')
 
 
 @countries_blueprint.route("/countries/<id>/delete", methods = ['POST'])
@@ -65,5 +64,5 @@ def update_visited_country(id):
     country_object = country_repository.select(id)
     update_country_visit_status(country_object)
     country_repository.update(country_object)
-    
+
     return redirect(request.referrer)
