@@ -1,0 +1,41 @@
+.home-main {
+    background-image: url("images/home-bg-image.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+}
+
+.header-container {
+    background-color: #56ABA1;
+    margin: 0;
+}
+
+body {
+    background-color: #F4F4F2;
+    margin: 0;
+    font-family: 'Nunito', sans-serif;;
+}
+
+.home-container {
+    background-color: rgba(229, 154, 142, 110);
+    opacity: 0.6;
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-top: 10%;
+    padding: 2%;
+    text-align: center;
+}
+
+.home-container-text {
+    opacity: 1;
+}
+
+#all-button {
+    text-align: center;
+    margin-right: 45%;
+    margin-left: 45%;
+    padding: 1%;
+}
