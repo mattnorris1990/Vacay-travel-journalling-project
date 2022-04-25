@@ -16,3 +16,34 @@ def save(country_entry):
     country_entry.date_stamp = date_stamp
 
     return country_entry
+
+def select_all():
+    entries = []
+
+    sql = "SELECT * FROM country_entries ORDER BY (id)"
+    results = run_sql(sql)
+
+    for row in results:
+        country = country_repository.select(row['country_id'])
+        entry = Country_Entry(row['title'], row['text_entry'], row['image'], country, row['date_stamp'], row['id'])
+        entries.append(entry)
+    return entries
+
+def select(id):
+    entry = None
+    sql = "SELECT * from country_entries WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+
+    if len(results) > 0:
+        result = results[0]
+        country = country_repository.select(result['country_id'])
+        entry = Country_Entry(result['title'], result['text_entry'], result['image'], country, result['date_stamp'], result['id'])
+        return entry
+
+
+def delete_all():
+    sql = "DELETE FROM country_entries"
+    run_sql(sql)
+
+
