@@ -2,9 +2,11 @@ from unittest.util import _PLACEHOLDER_LEN
 from models.country import Country
 from models.place import Place
 from models.country_entry import Country_Entry
+from models.place_entry import Place_Entry
 import repositories.country_repository as country_repository
 import repositories.place_repository as place_repository
 import repositories.country_entry_repository as country_entry_repository
+import repositories.place_entry_repository as place_entry_repository
 
 # country_entry_repository.delete_all()
 # place_repository.delete_all()
@@ -70,6 +72,22 @@ import repositories.country_entry_repository as country_entry_repository
 
 # print(entry.__dict__)
 
-country_entry1 = Country_Entry("UPDATED TEST TITLE", "This is a test entry UPDATED", "images/placeholder_country_image.jpg", country1, "2022-04-25 10:56:44.587897+01", 5)
+# country_entry1 = Country_Entry("UPDATED TEST TITLE", "This is a test entry UPDATED", "images/placeholder_country_image.jpg", country1, "2022-04-25 10:56:44.587897+01", 5)
 
-country_entry_repository.update(country_entry1)
+# country_entry_repository.update(country_entry1)
+
+# place_entry1 = Place_Entry("Test Title", "This is a test entry", "images/placeholder_country_image.jpg", place1)
+# place_entry_repository.save(place_entry1)
+
+# place_entry2 = Place_Entry("2nd test title", "This is another test entry", "images/placeholder_country_image.jpg", place2)
+# place_entry_repository.save(place_entry2)
+
+# entries = place_entry_repository.select_all()
+
+# for entry in entries:
+#     print(entry.__dict__)
+
+entry = place_entry_repository.select(1)
+
+print(entry.__dict__)
+

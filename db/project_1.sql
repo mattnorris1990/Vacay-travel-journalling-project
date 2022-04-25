@@ -30,6 +30,8 @@ CREATE TABLE country_entries (
 CREATE TABLE place_entries (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
-    entry_date TIMESTAMP,
+    text_entry TEXT,
+    image VARCHAR(255),
+    date_stamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     place_id INT NOT NULL REFERENCES places(id)
 );
