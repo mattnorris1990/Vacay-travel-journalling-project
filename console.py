@@ -1,8 +1,10 @@
 from unittest.util import _PLACEHOLDER_LEN
 from models.country import Country
 from models.place import Place
+from models.country_entry import Country_Entry
 import repositories.country_repository as country_repository
 import repositories.place_repository as place_repository
+import repositories.country_entry_repository as country_entry_repository
 
 place_repository.delete_all()
 country_repository.delete_all()
@@ -50,3 +52,8 @@ place_repository.save(place3)
 
 # place3 = Place("Cologne", country3, "images/placeholder_country_image.jpg", True, 3)
 # place_repository.update(place3)
+
+country_entry1 = Country_Entry("Test Title", "This is a test entry", "images/placeholder_country_image.jpg", country1)
+country_entry_repository.save(country_entry1)
+
+
