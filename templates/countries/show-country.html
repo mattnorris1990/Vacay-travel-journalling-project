@@ -57,5 +57,24 @@
 
 </section>    
 
+<section class = "Entry List">
+    <h2>My entries for {{ country.name }}</h2>
+
+    {% for entry in entries %}
+       <p>
+           <a href="/countries/entries/{{ entry.id }}">{{ entry.title }}</a>
+        </p>
+        <p>
+            {{ entry.text }}
+        </p>
+        <hr>
+    {% endfor %}
+
+    <a href="/countries/entries/addentry">
+        <button class="button">
+            Add Entry
+        </button>
+    </a>
+</section>
 
 {% endblock %}

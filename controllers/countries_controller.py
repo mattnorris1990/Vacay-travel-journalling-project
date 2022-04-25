@@ -1,5 +1,5 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
-from repositories import country_repository, place_repository
+from repositories import country_repository, place_repository, country_entry_repository
 from models.country import Country, update_country_visit_status
 from models.place import Place
 import controllers.places_controller as places_controller
@@ -32,7 +32,8 @@ def add_country():
 def show_country(id):
     country = country_repository.select(id)
     places = place_repository.select_all()
-    return render_template('/countries/show-country.html', country=country, places = places)
+    entries = country_entry_repository.select_all()
+    return render_template('/countries/show-country.html', country=country, places = places, entries=entries)
 
 @countries_blueprint.route("/countries/<id>/edit")
 def edit_country_page(id):
