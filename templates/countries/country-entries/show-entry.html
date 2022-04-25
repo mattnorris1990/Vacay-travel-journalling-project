@@ -5,6 +5,14 @@
     <p>{{entry.name}}</p>
     <p>{{entry.text}}</p>
 
+    <a href="/countries/entries/{{entry.id}}/edit">
+        <button class="button">
+            edit
+        </button>
+    </a>
+    <form action="/countries/entries/{{entry.id}}/delete" method="POST" class="button">
+        <input type="submit" value="Delete"> 
+    </form>
 
 </section>
 
