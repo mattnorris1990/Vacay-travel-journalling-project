@@ -12,3 +12,17 @@ def update_country_visit_status(country):
     else: 
         country.visited = False
     return country
+
+def check_visit_status_true(countries):
+    countries_true = []
+    for country in countries:
+        if country.visited == True:
+            countries_true.append(country)
+    return countries_true
+
+def check_visit_status_false(countries):
+    countries_false = []
+    for country in countries:
+        if country.visited == False:
+            countries_false.append(country)
+    return countries_false

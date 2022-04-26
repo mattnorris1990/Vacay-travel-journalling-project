@@ -1,6 +1,6 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import country_repository, place_repository, country_entry_repository
-from models.country import Country, update_country_visit_status
+from models.country import Country, check_visit_status_false, check_visit_status_true, update_country_visit_status
 from models.place import Place
 import controllers.places_controller as places_controller
 
@@ -9,6 +9,20 @@ countries_blueprint = Blueprint("countries", __name__)
 @countries_blueprint.route("/countries")
 def countries():
     countries = country_repository.select_all()
+    entries = country_entry_repository.select_all()
+    return render_template("/countries/index.html", countries = countries, entries = entries)
+
+@countries_blueprint.route("/countries/visited")
+def countries_visited():
+    all_countries = country_repository.select_all()
+    countries = check_visit_status_true(all_countries)
+    entries = country_entry_repository.select_all()
+    return render_template("/countries/index.html", countries = countries, entries = entries)
+
+@countries_blueprint.route("/countries/wishlist")
+def countries_wishlist():
+    all_countries = country_repository.select_all()
+    countries = check_visit_status_false(all_countries)
     entries = country_entry_repository.select_all()
     return render_template("/countries/index.html", countries = countries, entries = entries)
 

@@ -128,6 +128,9 @@ body {
 
 #block-buttons {
     margin: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .block-button {

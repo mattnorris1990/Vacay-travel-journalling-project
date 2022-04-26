@@ -7,6 +7,21 @@
         <h2>
             My Countries
         </h2>
+        <a href="/countries">
+            <button class="button" id="all-button">
+                All
+            </button>
+        </a>
+        <a href="/countries/visited">
+            <button class="button" id="all-button">
+                Visited
+            </button>
+        </a>
+        <a href="/countries/wishlist">
+            <button class="button" id="all-button">
+                Wishlist
+            </button>
+        </a>
         <a href="/addcountry">
             <button class="button" id="all-button">
                 Add Country
@@ -30,15 +45,15 @@
             {% endif %}
             </div>
         <div id="country-entries">
-                {% for entry in entries %}
-                    {% if entry.country.id == country.id %}
-                        <p>
-                            <a href="/countries/entries/{{entry.id}}">
-                                {{ entry.title }}
-                            </a>
-                        </p>    
-                    {% endif %}
-                {% endfor %}
+            {% for entry in entries %}
+                {% if entry.country.id == country.id %}
+                    <p>
+                        <a href="/countries/entries/{{entry.id}}">
+                            {{ entry.title }}
+                        </a>
+                    </p>    
+                {% endif %}
+            {% endfor %}
             </p>
         </div>
 
@@ -51,14 +66,18 @@
                 </a>
             </p>
             <p id="block-buttons">
-                <button class="block-button">
-                    Add Country
-                </button>
+                <a href="/countries/{{country.id}}/edit">
+                    <button class="block-button">
+                        Edit Country
+                    </button>
+                </a>
             </p>
             <p id="block-buttons">
-                <button class="block-button">
-                    Add Country
-                </button>
+                <a href="/countries/{{country.id}}/delete/">
+                    <button class="block-button">
+                        Delete Country
+                    </button>
+                </a>
             </p>
         </div>
     
