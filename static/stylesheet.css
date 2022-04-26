@@ -1,13 +1,14 @@
-/* #home-main {
-    max-height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: auto;
-} */
+h2 {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: #525050;
+}
 
 a {
     text-decoration: none;
+    color:#00625f;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
 }
 
 .header-container {
@@ -34,9 +35,12 @@ a {
 }
 
 body {
-    background-color: #F4F4F2;
+    background-image: url('/static/images/bg-tile.jpg');
+    background-repeat: repeat;
+    /* background-color: #F4F4F2; */
     margin: 0;
     font-family: 'Nunito', sans-serif;
+    color: #525050;
 }
 
 .home-container {
@@ -66,12 +70,26 @@ body {
 
 .button {
     background-color: #F1D3C8;
-    border: 2px solid #8B8B8B;
+    border: 0px solid #8B8B8B;
     border-radius: 10px;
     margin: 1%;
+    padding: 7px;
+    padding-right: 20px;
+    padding-left: 20px;
     white-space:nowrap;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #525050;
     
 }
+
+.button:hover {
+    background-color: #00D9D1; 
+}
+
+.button:active {
+    background-color: #ef8860;
+} 
 
 .button > a {
     text-decoration: none;
@@ -84,6 +102,11 @@ body {
     text-align: center;
     margin:auto;
     width: 50%;
+}
+
+#add-country {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .country-list {
@@ -101,7 +124,7 @@ body {
     white-space: nowrap;
     gap: 10px;
     overflow: hidden;
-    height: 100px;
+    height: 110px;
     justify-content: space-between;
     align-items: stretch;
 }
@@ -112,6 +135,7 @@ body {
     border: 0;
     border-radius: 10px;
     padding: 10px;
+    
 }
 
 #country-title {
@@ -133,6 +157,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: flex-end;
+    
 }
 
 .block-button {
@@ -140,6 +165,9 @@ body {
     border: 2px solid #8B8B8B;
     border-radius: 10px;
     margin: 7%;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    color: #525050;
 }
 
 .main-image-container {
@@ -182,12 +210,13 @@ body {
 }
 
 #show-controls {
-    margin:2;
+    margin:0;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
     align-items: center;
     margin-top: 0; 
+    gap: 10px;
 }
 
 .places-entries-container {
