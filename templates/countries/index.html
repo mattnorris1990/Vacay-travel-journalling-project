@@ -3,20 +3,22 @@
 {% block content %}
 
 <section class = "country-list">
-    <h2>
-        My Country List
-    </h2>
-    <a href="/addcountry">
-        <button class="button">
-            Add Country
-        </button>
-    </a>
+    <div id="page-subheading">
+        <h2>
+            My Countries
+        </h2>
+        <a href="/addcountry">
+            <button class="button" id="all-button">
+                Add Country
+            </button>
+        </a>
+    </div>
 {% for country in countries %}
-    <div class = "country block">
-        <p>
-            <a href="/countries/{{country.id}}">{{country.name}}</a>
-        </p>
-        <p>
+    <div class = "country-block">
+        <div id="country-title">
+            <h3>
+                <a href="/countries/{{country.id}}">{{country.name}}</a>
+            </h3>
             {% if country.visited == true %}
                 <form action="/countries/{{country.id}}/visited" method="POST">
                 <input type="submit" value="&#10003; Visited" class="visited-button">
@@ -26,8 +28,40 @@
                 <input type="submit" value="&#10060; Unvisited" class="visited-button">
                 </form> 
             {% endif %}
-        </p>
-        <hr>
+            </div>
+        <div id="country-entries">
+                {% for entry in entries %}
+                    {% if entry.country.id == country.id %}
+                        <p>
+                            <a href="/countries/entries/{{entry.id}}">
+                                {{ entry.title }}
+                            </a>
+                        </p>    
+                    {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+
+        <div>
+            <p id="block-buttons">
+                <a href="/countries/{{country.id}}">
+                    <button class="block-button">
+                        View Country
+                    </button>
+                </a>
+            </p>
+            <p id="block-buttons">
+                <button class="block-button">
+                    Add Country
+                </button>
+            </p>
+            <p id="block-buttons">
+                <button class="block-button">
+                    Add Country
+                </button>
+            </p>
+        </div>
+    
     </div>
 
 {% endfor %}

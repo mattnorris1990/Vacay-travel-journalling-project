@@ -6,28 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap');
         </style>
     <title>&#9728; Vacay: Your Dream Holiday journal</title>
 </head>
 <body>
     <heading>
         <div class = "header-container">
-        <h1>Vacay</h1>
-            <nav>
-                <ul>
-                    <li>
-                        home
-                    </li>
-                    <li>
-                        Your profile
-                    </li>
-                    <li>
-                        Your account
-                    </li>
-                </ul>
+        <h1 id="logo"><a href="/">Vacay</a></h1>
+            <nav id="nav">
+                <button class="button">
+                    Account
+                </button>
             </nav>
-            <hr>
         </div>
     </heading>
     

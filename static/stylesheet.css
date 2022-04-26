@@ -1,41 +1,138 @@
-.home-main {
-    background-image: url("images/home-bg-image.jpg");
-    height: 100%;
+#home-main {
+    background: url("images/home-bg-image.jpg");
+    height: auto;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 0px;
-    padding: 0px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
 }
 
 .header-container {
     background-color: #56ABA1;
     margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    margin: 0;
+    padding: 1%;
+    padding-left: 3%;
+}
+
+#nav {
+    margin: 0;
+    padding: 1%;
+    padding-right: 3%;
+
 }
 
 body {
     background-color: #F4F4F2;
     margin: 0;
-    font-family: 'Nunito', sans-serif;;
+    font-family: 'Nunito', sans-serif;
 }
 
 .home-container {
     background-color: rgba(229, 154, 142, 110);
-    opacity: 0.6;
-    margin-right: 25%;
-    margin-left: 25%;
+    opacity: 0.8;
+    margin: auto;
+    width: 50%;
     margin-top: 10%;
     padding: 2%;
     text-align: center;
+    border-radius: 10px;
 }
 
-.home-container-text {
-    opacity: 1;
+#home-buttons {
+    padding: 0;
+    display: flex;
+    justify-content: center;
 }
 
 #all-button {
     text-align: center;
-    margin-right: 45%;
-    margin-left: 45%;
+    text-wrap: no-wrap;
     padding: 1%;
+    padding-right: 3%;
+    padding-left: 3%;
+    white-space: nowrap;
+}
+
+.button {
+    background-color: #F1D3C8;
+    border: 2px solid #8B8B8B;
+    border-radius: 10px;
+    margin: 1%;
+    
+}
+
+.button > a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Nunito', sans-serif,;
+    font-weight: 500;
+}
+
+#page-subheading {
+    text-align: center;
+    margin:auto;
+    width: 50%;
+}
+
+.country-list {
+    margin: auto;
+    width: 50%;
+}
+
+.country-block {
+    background-color: #E59A8E;
+    border-radius: 20px;
+    border: 0px;
+    padding: 2%;
+    margin: 2%;
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 100px;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.visited-button {
+    background-color: #F1D3C8;
+    border: 0;
+    border-radius: 10px;
+    padding: 10%;
+}
+
+#country-title {
+    white-space: nowrap;
+    margin: 1%;
+}
+
+#country-title > a {
+    text-decoration: none;
+}
+
+#country-entries {
+    white-space: nowrap;
+    overflow: scroll;
+}
+
+#block-buttons {
+    margin: 0px;
+}
+
+.block-button {
+    background-color: #F1D3C8;
+    border: 2px solid #8B8B8B;
+    border-radius: 10px;
+    margin: 7%;
 }

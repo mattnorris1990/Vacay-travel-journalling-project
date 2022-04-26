@@ -1,14 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<main class="home-main">
-    <section class = "home-container">
-        <div class = "home-container-text">
+    <main id ="home-main">
+        <section class = "home-container">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla porttitor massa id neque aliquam vestibulum morbi. Ultrices in iaculis nunc sed augue lacus viverra. Sit amet tellus cras adipiscing enim. Cras adipiscing enim eu turpis egestas. Eget nunc scelerisque viverra mauris in aliquam sem fringilla ut. Est pellentesque elit ullamcorper dignissim cras tincidunt. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit.
+        </section>
+        <div id="home-buttons">
+            <button id = "all-button" class="button">
+                <a href="/countries">Your countries</a>
+            </button>
+            <button id = "all-button" class="button">
+                <a href="/countries/addcountry">Add Country</a>
+            </button>
         </div>
-    </section>
-    <button id = "all-button">
-        <a href="/countries">Your countries</a>
-    </button>
-</main>
-{% endblock %}
+    </main>
+    {% endblock %}
