@@ -10,7 +10,7 @@ countries_blueprint = Blueprint("countries", __name__)
 def countries():
     countries = country_repository.select_all()
     entries = country_entry_repository.select_all()
-    return render_template("/countries/index.html", countries = countries, entries = entries)
+    return render_template("/countries/index.html", countries = countries, entries = entries, stylesheet="stylesheet.css'")
 
 @countries_blueprint.route("/countries/visited")
 def countries_visited():
@@ -36,7 +36,7 @@ def add_country():
     if len(request.form['image']) > 0:
         image = request.form['image']
     else:
-        image = "images/placeholder_country_image.jpg"
+        image = "placeholder_country_image"
     
     country_object = Country(name, image)
     country_repository.save(country_object)

@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 
+{% block head %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='home-stylesheet.css') }}">
+
+{% endblock %}
+
 {% block content %}
-    <main id ="home-main">
+
+
+
+<div >
+    <div id ="home-main">
         <section class = "home-container">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla porttitor massa id neque aliquam vestibulum morbi. Ultrices in iaculis nunc sed augue lacus viverra. Sit amet tellus cras adipiscing enim. Cras adipiscing enim eu turpis egestas. Eget nunc scelerisque viverra mauris in aliquam sem fringilla ut. Est pellentesque elit ullamcorper dignissim cras tincidunt. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed velit.
         </section>
@@ -13,5 +23,6 @@
                 <a href="/countries/addcountry">Add Country</a>
             </button>
         </div>
-    </main>
+    </div>
+</div>
     {% endblock %}

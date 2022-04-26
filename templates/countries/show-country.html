@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if country.image == "placeholder_country_image.jpg" %}
-    {% set imgUrl = "images/" + country.image %}
+{% if country.image == "placeholder_country_image" %}
     <div class="main-image-container">    
+        {% set imgUrl = "/images/" + country.image + ".jpg" %}
         <img src = "{{url_for('static', filename=imgUrl)}}" class="main-image">
     </div>
 {% else %}
@@ -11,6 +11,7 @@
         <img src="{{country.image}}">
     </div>
 {% endif %}
+
 <section class = 'show-container'>
     <heading>
         <div id = 'show-title'>
@@ -27,21 +28,22 @@
         </div>
     </heading>
 <div id = "show-controls">
-<p>
-    <a href="/countries/{{country.id}}/delete/">
-        <button class="button">
-            Delete
-        </button>
-</p>
-<p>
-    <a href="/countries/{{ country.id }}/edit">
-        <button class="button">
-            Edit
-        </button>
-    </a>
-</p>
+    <p>
+        <a href="/countries/{{country.id}}/delete/">
+            <button class="button">
+                Delete
+            </button>
+    </p>
+    <p>
+        <a href="/countries/{{ country.id }}/edit">
+            <button class="button">
+                Edit
+            </button>
+        </a>
+    </p>
 </div>
 </section>
+
 <section class="places-entries-container">
     
     
@@ -76,26 +78,38 @@
 
     </section>    
 
-    <section class = "Entry List">
-        <h2>My entries for {{ country.name }}</h2>
-
+    <section id = "entry-list">
+        <heading id = "entry-title">
+        <h2>My {{ country.name }} Journal</h2>
+            <a href="/countries/entries/addentry">
+                <button class="button">
+                    Add Entry
+                </button>
+            </a>
+        </heading>
+        
         {% for entry in entries %}
             {% if country.id == entry.country.id %}
                 <p>
                     <a href="/countries/entries/{{ entry.id }}">{{ entry.title }}</a>
                     </p>
+                    <div class = "journal-excerpt">
+                        <p>
+                            {{ entry.text }}
+                        </p>
+                    </div>
                     <p>
-                        {{ entry.text }}
+                        <a href="/countries/entries/{{ entry.id }}">read more...</a>
+                    </p>
+                    <p id="datestamp">
+                        added: {{ entry.date_stamp }}
                     </p>
                     <hr>
+            
             {% endif %}
+            
         {% endfor %}
-
-        <a href="/countries/entries/addentry">
-            <button class="button">
-                Add Entry
-            </button>
-        </a>
+        
     </section>
 </section>
 

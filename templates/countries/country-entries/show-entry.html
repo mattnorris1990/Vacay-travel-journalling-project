@@ -1,18 +1,61 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
-    <p><h2>{{entry.title}}</h2></p>
-    <p>{{entry.text}}</p>
 
-    <a href="/countries/entries/{{entry.id}}/edit">
-        <button class="button">
-            edit
-        </button>
-    </a>
-    <form action="/countries/entries/{{entry.id}}/delete" method="POST" class="button">
-        <input type="submit" value="Delete"> 
-    </form>
+{% if country.image == "placeholder_country_image" %}
+    <div class="main-image-container">    
+        {% set imgUrl = "/images/" + country.image + ".jpg" %}
+        <img src = "{{url_for('static', filename=imgUrl)}}" class="main-image">
+    </div>
+{% else %}
+    <div class="main-image-container">
+        <img src="{{country.image}}">
+    </div>
+{% endif %}
+
+<section class = "show-container">
+    <heading>
+        <div id = 'show-title'>
+            <h2>{{entry.title}}</h2>
+        </div>
+    </heading>
+<div id = "show-controls">
+    <p>
+        <a href="/countries/entries/{{entry.id}}/edit">
+            <button class="button">
+                edit
+            </button>
+        </a>
+    </p>
+    <p>
+        <a href="/countries/entries/{{entry.id}}/delete/">
+            <button class="button">
+                Delete
+            </button>
+        </a>
+    </p>
+</div>
+</section>
+    
+        <div>
+            {% if entry.image == "placeholder_country_image" %}
+                <div  class="entry-image">    
+                    {% set imgUrl = "images/" + entry.image + ".jpg" %}
+                    <img src = "{{url_for('static', filename=imgUrl)}}" >
+                </div>
+            {% else %}
+                <div  class="entry-image">
+                    <img src="{{country.image}}">
+                </div>
+            {% endif %}
+        </div>
+    <section class="places-entries-container">    
+        <div>
+            <p>{{entry.text}}</p>
+                <p id = "datestamp">{{entry.date_stamp}}</p>
+        </div>
+    </section>
+
 
 </section>
 

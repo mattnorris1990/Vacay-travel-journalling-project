@@ -1,55 +1,83 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
-<p>{{place.name}}</p>
-<p>
-    {% if place.visited == true %}
-        <form action="/countries//places/{{place.id}}/visited" method="POST">
-        <input type="submit" value="&#10003; Visited" class="visited-button">
-        </form> 
-    {% else %}
-        <form action="/countries/places/{{place.id}}/visited" method="POST">
-        <input type="submit" value="&#10060; Unvisited" class="visited-button">
-        </form>
-    {% endif %}
 
-</p>
-<hr>
-<p>
-    <form action="/countries/places/{{place.id}}/delete" method="POST" class="button">
-        <input type="submit" value="Delete"> 
-    </form>
-</p>
-<p>
-    <a href="/countries/places/{{ place.id }}/edit">
-        <button class="button">
-            Edit
-        </button>
-    </a>
-</p>
+{% if place.image == "placeholder_country_image" %}
+    <div class="main-image-container">    
+        {% set imgUrl = "/images/" + place.image + ".jpg" %}
+        <img src = "{{url_for('static', filename=imgUrl)}}" class="main-image">
+    </div>
+{% else %}
+    <div class="main-image-container">
+        <img src="{{place.image}}">
+    </div>
+{% endif %}
+
+<section class = "show-container">
+    <headng>
+        <div id = 'show-title'>
+            <h2>{{place.name}}</h2>
+            {% if place.visited == true %}
+                <form action="/countries//places/{{place.id}}/visited" method="POST">
+                <input type="submit" value="&#10003; Visited" class="visited-button">
+                </form> 
+            {% else %}
+                <form action="/countries/places/{{place.id}}/visited" method="POST">
+                <input type="submit" value="&#10060; Unvisited" class="visited-button">
+                </form>
+            {% endif %}
+        </div>
+    </headng>
+<div id = "show-controls">
+    <p>
+        <a href="/countries/places/{{place.id}}/delete/">
+            <button class="button">
+                Delete
+            </button>
+    </p>
+    <p>
+        <a href="/countries/places/{{ place.id }}/edit">
+            <button class="button">
+                Edit
+            </button>
+        </a>
+    </p>
+</div>
 </section>
 
-<section class = "Entry List">
-    <h2>My entries for {{ place.name }}</h2>
+<section class="places-entries-container">
 
+<section id = "entry-list">
+    <heading id = "entry-title">
+        <h2>My {{ place.name }} journal</h2>
+        <a href="/countries/places/entries/addentry">
+            <button class="button">
+                Add Entry
+            </button>
+        </a>
+    </heading>
     {% for entry in entries %}
         {% if place.id == entry.place.id %}
         <p>
             <a href="/countries/places/entries/{{ entry.id }}">{{ entry.title }}</a>
         </p>
+        <div class = "journal-excerpt"></div>
+            <p>
+                {{ entry.text }}
+            </p>
+        </div>
         <p>
-            {{ entry.text }}
+            <a href="/countries/places/entries/{{ entry.id }}">read more...</a>
+        </p>
+        <p id="datestamp">
+            added: {{ entry.date_stamp }}
         </p>
         <hr>
         {% endif %}
     {% endfor %}
 
-    <a href="/countries/places/entries/addentry">
-        <button class="button">
-            Add Entry
-        </button>
     </a>
+</section>
 </section>
 
 {% endblock %}

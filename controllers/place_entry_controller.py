@@ -22,7 +22,7 @@ def add_place_entry_form():
     if len(request.form['image']) > 0:
         image = request.form['image']
     else:
-        image = "images/placeholder_country_image.jpg"
+        image = "placeholder_country_image"
 
     text = request.form['entry_text']
 
@@ -34,7 +34,9 @@ def add_place_entry_form():
 @placeentry_blueprint.route('/countries/places/entries/<id>')
 def show_place_entry(id):
     entry = place_entry_repository.select(id)
-    return render_template('/countries/places/place-entries/show-entry.html', entry = entry)
+    place = entry.place
+
+    return render_template('/countries/places/place-entries/show-entry.html', entry = entry, place=place)
 
 @placeentry_blueprint.route('/countries/places/entries/<id>/delete', methods = ['POST'])
 def delete_place_entry(id):

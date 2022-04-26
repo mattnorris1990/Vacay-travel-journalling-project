@@ -1,18 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
-    <p><h2>{{entry.title}}</h2></p>
-    <p>{{entry.text}}</p>
+{% if place.image == "placeholder_country_image" %}
+    <div class="main-image-container">    
+        {% set imgUrl = "/images/" + place.image + ".jpg" %}
+        <img src = "{{url_for('static', filename=imgUrl)}}" class="main-image">
+    </div>
+{% else %}
+    <div class="main-image-container">
+        <img src="{{country.image}}">
+    </div>
+{% endif %}
 
-    <a href="/countries/places/entries/{{entry.id}}/edit">
-        <button class="button">
-            edit
-        </button>
-    </a>
-    <form action="/countries/entries/{{entry.id}}/delete" method="POST" class="button">
-        <input type="submit" value="Delete"> 
-    </form>
+<section class = "show-container">
+    <heading>
+        <div id = 'show-title'>
+            <h2>{{entry.title}}</h2>
+        </div>
+    </heading>
+<div id = "show-controls">
+    <p>
+        <a href="/countries/places/entries/{{entry.id}}/edit">
+            <button class="button">
+                edit
+            </button>
+        </a>
+        <a href="/countries/places/entries/{{entry.id}}/delete">
+            <button class="button">
+                delete
+            </button>
+        </a>
+    </p>
+</div>
+</section>
+        <div>
+            {% if entry.image == "placeholder_country_image" %}
+            <div  class="entry-image">    
+                {% set imgUrl = "images/" + entry.image + ".jpg" %}
+                <img src = "{{url_for('static', filename=imgUrl)}}" >
+            </div>
+            {% else %}
+                <div  class="entry-image">
+                    <img src="{{entry.image}}">
+                </div>
+            {% endif %} 
+        </div>
+    <section class="places-entries-container">
+        <div>
+            <p>{{entry.text}}</p>
+        </div>
+    
+    </section>
+   
 
 </section>
 

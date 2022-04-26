@@ -36,7 +36,8 @@ def add_country_entry_form():
 @countryentry_blueprint.route('/countries/entries/<id>')
 def show_entry(id):
     entry = country_entry_repository.select(id)
-    return render_template('/countries/country-entries/show-entry.html', entry = entry)
+    country = entry.country
+    return render_template('/countries/country-entries/show-entry.html', entry = entry, country=country)
 
 
 @countryentry_blueprint.route('/countries/entries/<id>/delete', methods = ['POST'])
