@@ -37,8 +37,9 @@ def add_country():
         image = request.form['image']
     else:
         image = "placeholder_country_image"
+    continent = request.form['continent']
     
-    country_object = Country(name, image)
+    country_object = Country(name, image, continent)
     country_repository.save(country_object)
 
     return redirect("/countries")
@@ -63,7 +64,7 @@ def edit_country_form(id):
         image = request.form['image']
     else:
         image = country.image
-    country_object = Country(name, image, country.visited, id)
+    country_object = Country(name, image, country.continent, country.visited, id)
     country_repository.update(country_object)
     return redirect(f'/countries/{ country_object.id }')
 

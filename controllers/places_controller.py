@@ -16,7 +16,7 @@ def add_place_form():
     if len(request.form['image']) > 0:
         image = request.form['image']
     else:
-        image = "images/placeholder_country_image.jpg"
+        image = "placeholder_place_image"
     
     country_id = request.form['country_id']
     country = country_repository.select(country_id)

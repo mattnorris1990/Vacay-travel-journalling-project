@@ -99,11 +99,13 @@ body {
     margin: 2%;
     display: flex;
     white-space: nowrap;
+    gap: 10px;
     overflow: hidden;
     height: 100px;
     justify-content: space-between;
     align-items: stretch;
 }
+
 
 .visited-button {
     background-color: #F1D3C8;
@@ -114,7 +116,7 @@ body {
 
 #country-title {
     white-space: nowrap;
-    margin: 1%;
+    margin: 0%;
 }
 
 #country-title > a {
@@ -122,8 +124,8 @@ body {
 }
 
 #country-entries {
-    white-space: nowrap;
-    overflow: scroll;
+    white-space: wrap;
+    overflow: hidden;
 }
 
 #block-buttons {
@@ -141,15 +143,19 @@ body {
 }
 
 .main-image-container {
-    max-width: auto;
+    max-width: 100%;
     height: 300px;
     white-space: nowrap;
-    overflow: scroll;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    overflow: hidden;
 }
+
+/* .main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 150%;
+} */
+
 
 .show-container {
     margin: auto;
@@ -204,9 +210,10 @@ body {
     display: flex;
     flex-wrap: nowrap;
     align-content: flex-start;
+    align-items: flex-start;
     gap: 5%;
     background-color:#E59A8E;
-    margin: 10px;
+    margin-bottom: 5px;
     padding: 7%;
     border-radius: 10px;
 }
@@ -242,4 +249,56 @@ body {
 .journal-excerpt {
     max-height: 67px;
     overflow: clip;
+}
+
+.add-container {
+    padding: 3%;
+    margin: auto;
+    width: 25%;
+    white-space: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E59A8E;
+    border-radius: 20px;
+    
+}
+
+.add-form {
+    display: grid;
+    gap: 10px;
+    grid-template: 
+    'name-title'
+    'image'
+    'country'
+    'submit';
+    justify-items: center;
+
+}
+
+.add-form > #name-title {
+    grid-area: 'name-title';  
+    margin-bottom: 10px;
+}
+
+.add-form > #image {
+    grid-area: 'image';
+    margin-bottom: 10px;
+}
+
+.add-form > #submit {
+    grid-area: 'submit';
+    margin-bottom: 10px;
+}
+
+.add-form > #country-id {
+    grid-area: 'country';
+    margin-bottom: 10px;
+}
+
+input[type='text'], input[type='URL'], select {
+    background-color: #00D9D1;
+    border: 2px solid #8B8B8B;
+    border-radius: 10px;
+    padding: 10px;
 }

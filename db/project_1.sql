@@ -7,6 +7,7 @@ CREATE TABLE countries (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100),
     visited BOOLEAN,
+    continent VARCHAR(100),
     image VARCHAR(255)
 );
 

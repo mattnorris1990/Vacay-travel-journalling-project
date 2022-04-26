@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if place.image == "placeholder_country_image" %}
+{% if place.image == "placeholder_place_image" %}
     <div class="main-image-container">    
         {% set imgUrl = "/images/" + place.image + ".jpg" %}
         <img src = "{{url_for('static', filename=imgUrl)}}" class="main-image">
@@ -25,16 +25,15 @@
                 edit
             </button>
         </a>
-        <a href="/countries/places/entries/{{entry.id}}/delete">
-            <button class="button">
-                delete
-            </button>
-        </a>
+        <form action="/countries/places/entries/{{entry.id}}/delete" method="POST">
+            <input type="submit" value="Delete Country" class="button">
+        </form> 
+        
     </p>
 </div>
 </section>
         <div>
-            {% if entry.image == "placeholder_country_image" %}
+            {% if entry.image == "placeholder_entry_image" %}
             <div  class="entry-image">    
                 {% set imgUrl = "images/" + entry.image + ".jpg" %}
                 <img src = "{{url_for('static', filename=imgUrl)}}" >

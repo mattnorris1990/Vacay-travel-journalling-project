@@ -2,20 +2,39 @@
 
 {% block content %}
 
-<form action="/addcountry" method="post">
-    <div>
-      <label for="country_name">Country name:</label>
-      <input type="text" id="country_name" name="country_name" placeholder="Country name" required autofocus>
-    </div>
-  
-    <div>
-        <label for="image">Image:</label>
-        <input type="url" id="image" name="image">
-    </div>
-  
-    <button type="submit">Add Country</button>
-  
-  </form>
+<heading id = "show-title">
+  <h2>
+    Add New Country
+  </h2>
+</heading>
+<div class = "add-container">
+  <form action="/addcountry" method="post" class = 'add-form'>
+      <div id="name-title">
+        <label for="country_name">Country name:</label>
+        <input type="text" id="country_name" name="country_name" placeholder="Country name" required autofocus>
+      </div>
 
+      <div>
+        <label for="continent">Country:</label>
+        <select name="continent" id="continent">
+            <option value="Africa">Africa</option>
+            <option value="Antarctica">Antarctica</option>
+            <option value="Asia">Asia</option>
+            <option value="Australia">Australia</option>
+            <option value="Europe">Europe</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+        </select>
+      </div>
+    
+      <div id="image">
+          <label for="image">Image:</label>
+          <input type="url" id="image" name="image" placeholder="add URL">
+      </div>
+    
+      <button type="submit" id="submit" class="button">Add Country</button>
+    
+    </form>
+</div>
 
 {% endblock %}

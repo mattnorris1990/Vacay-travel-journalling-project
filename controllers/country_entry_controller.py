@@ -23,7 +23,7 @@ def add_country_entry_form():
     if len(request.form['image']) > 0:
         image = request.form['image']
     else:
-        image = "images/placeholder_country_image.jpg"
+        image = "placeholder_entry_image"
 
     text = request.form['entry_text']
 

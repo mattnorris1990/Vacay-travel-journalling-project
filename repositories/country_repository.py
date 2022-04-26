@@ -4,8 +4,8 @@ from models.country import Country
 from models.place import Place
 
 def save(country):
-    sql = "INSERT INTO countries (name, visited, image) VALUES (%s, %s, %s) RETURNING *"
-    values = [country.name, country.visited, country.image]
+    sql = "INSERT INTO countries (name, visited, image, continent) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [country.name, country.visited, country.image, country.continent]
     results = run_sql(sql, values)
     id = results[0]['id']
     country.id = id
@@ -18,7 +18,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        country = Country(row['name'], row['image'], row['visited'], row['id'])
+        country = Country(row['name'], row['image'], row['continent'], row['visited'], row['id'])
         countries.append(country)
     return countries
 
@@ -31,7 +31,7 @@ def select(id):
 
     if len(results) > 0:
         result = results[0]
-        country = Country(result['name'], result['image'], result['visited'], result['id'])
+        country = Country(result['name'], result['image'], result['continent'], result['visited'], result['id'])
     return country
 
 def delete_all():
@@ -44,8 +44,8 @@ def delete(id):
     run_sql(sql, values)
 
 def update(country):
-    sql = "UPDATE countries SET (name, visited, image) = (%s, %s, %s) WHERE id = %s"
-    values = [country.name, country.visited, country.image, country.id]
+    sql = "UPDATE countries SET (name, visited, image, continent) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [country.name, country.visited, country.image, country.continent, country.id]
     run_sql(sql, values)
 
 def list_places(country):
@@ -56,6 +56,6 @@ def list_places(country):
     results = run_sql(sql, values)
 
     for row in results:
-        place  = Place(row['name'], row['country_id'], row['image'], row['visited'], row)
+        place  = Place(row['name'], row['country_id'], row['image'], row['visited'], row['id'])
         places.append(place)
     return places

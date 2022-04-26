@@ -2,7 +2,7 @@
 
 {% block content %}
 
-{% if place.image == "placeholder_country_image" %}
+{% if place.image == "placeholder_place_image" %}
     <div class="main-image-container">    
         {% set imgUrl = "/images/" + place.image + ".jpg" %}
         <img src = "{{url_for('static', filename=imgUrl)}}" class="main-image">
@@ -30,10 +30,9 @@
     </headng>
 <div id = "show-controls">
     <p>
-        <a href="/countries/places/{{place.id}}/delete/">
-            <button class="button">
-                Delete
-            </button>
+        <form action="/countries/places/{{place.id}}/delete" method="POST">
+            <input type="submit" value="Delete Country" class="button">
+            </form> 
     </p>
     <p>
         <a href="/countries/places/{{ place.id }}/edit">

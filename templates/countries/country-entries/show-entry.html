@@ -28,17 +28,16 @@
         </a>
     </p>
     <p>
-        <a href="/countries/entries/{{entry.id}}/delete/">
-            <button class="button">
-                Delete
-            </button>
-        </a>
+        <form action="/countries/entries/{{entry.id}}/delete" method="POST">
+            <input type="submit" value="Delete Country" class="button">
+        </form> 
+        
     </p>
 </div>
 </section>
     
         <div>
-            {% if entry.image == "placeholder_country_image" %}
+            {% if entry.image == "placeholder_entry_image" %}
                 <div  class="entry-image">    
                     {% set imgUrl = "images/" + entry.image + ".jpg" %}
                     <img src = "{{url_for('static', filename=imgUrl)}}" >

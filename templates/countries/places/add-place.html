@@ -2,15 +2,21 @@
 
 {% block content %}
 
-<form action="/countries/places/addplace" method="post">
-    <div>
+<heading id = "show-title">
+    <h2>
+        Add New Place
+    </h2>
+</heading>
+<div class = "add-container">
+    <form action="/countries/places/addplace" method="post" class="add-form">
+    <div id ="name-title">
       <label for="place_name">Place name:</label>
       <input type="text" id="place_name" name="place_name" placeholder="Place name" required autofocus>
     </div>
   
-    <div>
+    <div id="image">
         <label for="image">Image:</label>
-        <input type="url" id="image" name="image">
+        <input type="url" id="image" name="image" placeholder="add URL">
     </div>
     <div>
         <label for="country">Country:</label>
@@ -22,7 +28,7 @@
             {% endfor %}
         </select>
     </div>
-    <button type="submit">Add Place</button>
+    <button type="submit" class="button">Add Place</button>
   
   </form>
 
