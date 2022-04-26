@@ -1,23 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
-<p>{{country.name}}</p>
+{% if country.image == "placeholder_country_image.jpg" %}
+    {% set imgUrl = "images/" + country.image %}
+    <div class="main-image-container">    
+        <img src = "{{url_for('static', filename=imgUrl)}}" class="main-image">
+    </div>
+{% else %}
+    <div class="main-image-container">
+        <img src="{{country.image}}">
+    </div>
+{% endif %}
+<section class = 'show-container'>
+    <heading>
+        <div id = 'show-title'>
+            <h2>{{country.name}}</h2>
+            {% if country.visited == true %}
+                <form action="/countries/{{country.id}}/visited" method="POST">
+                <input type="submit" value="&#10003; Visited" class="visited-button">
+                </form>    
+            {% else %}
+                <form action="/countries/{{country.id}}/visited" method="POST">
+                <input type="submit" value="&#10060; Unvisited" class="visited-button">
+                </form> 
+            {% endif %}
+        </div>
+    </heading>
+<div id = "show-controls">
 <p>
-    {% if country.visited == true %}
-        <form action="/countries/{{country.id}}/visited" method="POST">
-        <input type="submit" value="&#10003; Visited" class="visited-button">
-        </form>    
-    {% else %}
-        <form action="/countries/{{country.id}}/visited" method="POST">
-        <input type="submit" value="&#10060; Unvisited" class="visited-button">
-        </form> 
-    {% endif %}
-</p>
-<p>
-    <form action="/countries/{{country.id}}/delete" method="POST" class="button">
-        <input type="submit" value="Delete"> 
-    </form>
+    <a href="/countries/{{country.id}}/delete/">
+        <button class="button">
+            Delete
+        </button>
 </p>
 <p>
     <a href="/countries/{{ country.id }}/edit">
@@ -26,57 +40,63 @@
         </button>
     </a>
 </p>
+</div>
 </section>
-<section class="places list">
-    <h2>Places in {{country.name}}</h2>
-    <div class="place container">
-        {% for place in places %}
-            {% if place.country.id == country.id %}
-
-                <a href="/countries/places/{{place.id}}">
-                    <p>{{place.name}}</p>
-                </a>
-                {% if place.visited == true %}
-                    <form action="/countries/places/{{place.id}}/visited" method="POST">
-                    <input type="submit" value="&#10003; Visited" class="visited-button">
-                    </form> 
-                {% else %}
-                    <form action="/countries/places/{{place.id}}/visited" method="POST">
-                    <input type="submit" value="&#10060; Unvisited" class="visited-button">
-                    </form>
+<section class="places-entries-container">
+    
+    
+    <section class="places-list">
+        <h2>Places in {{country.name}}</h2>
+        <div>
+            {% for place in places %}
+                {% if place.country.id == country.id %}
+                    <div id = "place-name-visited-container">
+                        <a href="/countries/places/{{place.id}}">
+                            <h3>{{place.name}}</h3>
+                        </a>
+                        {% if place.visited == true %}
+                            <form action="/countries/places/{{place.id}}/visited" method="POST">
+                            <input type="submit" value="&#10003; Visited" class="visited-button">
+                            </form> 
+                        {% else %}
+                            <form action="/countries/places/{{place.id}}/visited" method="POST">
+                            <input type="submit" value="&#10060; Unvisited" class="visited-button">
+                            </form>
+                        {% endif %}
+                    </div>
                 {% endif %}
+            {% endfor %}
+        </div>
+        <a href="/countries/places/addplace">
+            <button class="button">
+                Add Place
+            </button>
+        </a>
+        
+
+    </section>    
+
+    <section class = "Entry List">
+        <h2>My entries for {{ country.name }}</h2>
+
+        {% for entry in entries %}
+            {% if country.id == entry.country.id %}
+                <p>
+                    <a href="/countries/entries/{{ entry.id }}">{{ entry.title }}</a>
+                    </p>
+                    <p>
+                        {{ entry.text }}
+                    </p>
+                    <hr>
             {% endif %}
         {% endfor %}
-    </div>
-    <a href="/countries/places/addplace">
-        <button class="button">
-            Add Place
-        </button>
-    </a>
-    
 
-</section>    
-
-<section class = "Entry List">
-    <h2>My entries for {{ country.name }}</h2>
-
-    {% for entry in entries %}
-        {% if country.id == entry.country.id %}
-            <p>
-                <a href="/countries/entries/{{ entry.id }}">{{ entry.title }}</a>
-                </p>
-                <p>
-                    {{ entry.text }}
-                </p>
-                <hr>
-        {% endif %}
-    {% endfor %}
-
-    <a href="/countries/entries/addentry">
-        <button class="button">
-            Add Entry
-        </button>
-    </a>
+        <a href="/countries/entries/addentry">
+            <button class="button">
+                Add Entry
+            </button>
+        </a>
+    </section>
 </section>
 
 {% endblock %}
