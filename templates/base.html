@@ -19,20 +19,42 @@
     <heading>
         <div class = "header-container">
         <h1 id="logo"><a href="/">Vacay</a></h1>
-            <nav id="nav">
-                <a href="/addcountry">
-                    <button class="button">
-                        &#10133; Add country
-                    </button>
-                </a>
-                <a href="/countries">
-                    <button class="button">
-                        My countries
-                    </button>
-                </a>
+        
+        
+        <nav id="nav">
+            
+            
+            <form action="/countries" method="post" id="nav-continent-select">
+                <select id="entry_title" name="continent" required>
+                    <option value="Africa">Africa</option>
+                    <option value="Antarctica">Antarctica</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                </select>
+            <button type="submit" class="button">Go</button>
+            </form>
+
+            |
+                
+            <a href="/addcountry">
                 <button class="button">
-                    Account
+                    &#10133; Add country
                 </button>
+            </a>
+
+            <a href="/countries">
+                <button class="button">
+                    My countries
+                </button>
+            </a>
+
+            <button class="button">
+                Account
+            </button>
+
             </nav>
         </div>
     </heading>

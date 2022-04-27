@@ -25,6 +25,7 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap;
     box-shadow: 0px 1px 5px rgba(107,144,140,50); 
 }
 
@@ -39,8 +40,20 @@ hr {
     padding: 1%;
     padding-right: 3%;
     white-space: nowrap;
-
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
+
+#nav-continent-select > select {
+    background-color: #00D9D1;
+    border: 2px solid #8B8B8B;
+    border-radius: 10px;
+    padding: 7px;
+    margin: 0;
+}
+
 
 body {
     background-image: url('/static/images/bg-tile.jpg');
@@ -368,7 +381,7 @@ input[type='text'], input[type='URL'], select {
 
 } */
 
-input[type='textarea'] {
+textarea {
     background-color: #00D9D1;
     border: 2px solid #8B8B8B;
     border-radius: 10px;
@@ -390,3 +403,4 @@ input[type='textarea'] {
     justify-content: center;
     gap: 10px;
 }
+

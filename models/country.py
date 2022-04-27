@@ -28,4 +28,10 @@ def check_visit_status_false(countries):
             countries_false.append(country)
     return countries_false
 
-
+def check_continent(countries, continent):
+    countries_list = []
+    
+    for country in countries:
+        if country.continent == continent:
+            countries_list.append(country)
+    return countries_list
