@@ -83,7 +83,7 @@ def delete_country(id):
     return redirect('/countries')
 
 
-# I want this to redirect to the show_country route, not sure how
+
 @countries_blueprint.route("/countries/<id>/visited", methods= ['POST'])
 def update_visited_country(id):
     country_object = country_repository.select(id)

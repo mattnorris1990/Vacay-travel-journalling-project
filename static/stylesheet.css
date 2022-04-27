@@ -154,6 +154,7 @@ body {
 .country-list {
     margin: auto;
     width: 50%;
+    margin-bottom: 5%;
 }
 
 .country-block {
