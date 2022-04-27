@@ -31,8 +31,6 @@ def countries_by_continent():
     all_countries = country_repository.select_all()
     continent = request.form["continent"]
     countries = check_continent(all_countries, continent)
-    print(continent)
-    print(countries)
     entries = country_entry_repository.select_all()
     return render_template("/countries/index.html", countries = countries, entries = entries)
 

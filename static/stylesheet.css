@@ -29,11 +29,31 @@ hr {
     box-shadow: 0px 1px 5px rgba(107,144,140,50); 
 }
 
+.footer-container {
+    background-color: #56ABA1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 75px;
+    margin-top: 0px;
+    box-shadow: 0px -1px 5px rgba(107,144,140,30); 
+
+}
+
 #logo {
     margin: 0;
     padding: 1%;
     padding-left: 3%;
 }
+
+#logo > img {
+    margin: 0;
+    padding: 0;
+}
+
 
 #nav {
     margin: 0;
@@ -61,7 +81,6 @@ body {
     margin: 0;
     font-family: 'Nunito', sans-serif;
     color: #525050;
-    margin-bottom: 5%;
 }
 
 .home-container {
@@ -73,12 +92,14 @@ body {
     padding: 2%;
     text-align: center;
     border-radius: 10px;
+    
 }
 
 #home-buttons {
     padding: 0;
     display: flex;
     justify-content: center;
+    margin-bottom: 15%
 }
 
 #all-button {
