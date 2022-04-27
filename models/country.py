@@ -27,3 +27,5 @@ def check_visit_status_false(countries):
         if country.visited == False:
             countries_false.append(country)
     return countries_false
+
+

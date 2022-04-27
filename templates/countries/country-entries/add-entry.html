@@ -1,8 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<form action="/countries/entries/addentry" method="post">
+<heading id = "show-title">
+  <h2>
+    Add New Entry
+  </h2>
+</heading>
+<div class="add-entry-container">
+<form action="/countries/entries/addentry" method="post" class="add-form">
     <div>
         <label for="entry_title">Title:</label>
         <input type="text" id="entry_title" name="entry_title" placeholder="Title" required>
@@ -26,10 +31,10 @@
 
     <div>
         <label for="entry_text">Post:</label>
-        <input type="textarea" id="entry_text" name="entry_text" placeholder="Text Here" required>
+        <input type="textarea" id="entry_text" name="entry_text" required>
       </div>
 
-    <button type="submit">Add Entry</button>
+    <button type="submit" class="button">Add Entry</button>
 </form>
 
 {% endblock %}

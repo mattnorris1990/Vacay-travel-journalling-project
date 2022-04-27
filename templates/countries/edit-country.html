@@ -1,19 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<form action="/countries/{{ country.id }}/edit" method="post">
-    <div>
-      <label for="country_name">Country name:</label>
-      <input type="text" id="country_name" name="country_name" placeholder="Country name" required autofocus>
+<heading id = "show-title">
+  <h2>
+    Edit Country
+  </h2>
+</heading>
+<div class="add-container">
+  <form action="/countries/{{ country.id }}/edit" method="post" class="add-form">
+    <div id="name-title">
+      <label for="country_name">Country:</label>
+      <input type="text" id="country_name" name="country_name" value="{{country.name}}" required autofocus>
     </div>
   
     <div>
         <label for="image">Image:</label>
-        <input type="url" id="image" name="image">
+        <input type="url" id="image" name="image" placeholder="insert URL">
     </div>
   
-    <button type="submit">Update Country</button>
+    <button type="submit" class="button">Update Country</button>
   
   </form>
 

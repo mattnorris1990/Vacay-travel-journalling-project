@@ -26,6 +26,7 @@
                 </form> 
             {% endif %}
         </div>
+        <hr>
     </heading>
 <div id = "show-controls">
     <p>
@@ -110,6 +111,27 @@
         {% endfor %}
         
     </section>
+</section>
+<section class = "country-links-title">
+    <div>
+        <h2>Links</h2>
+    </div>
+</section>
+<section class = "country-links">
+    <p>
+        <a href="https://en.wikipedia.org/wiki/{{country.name}}">
+            <button class="button">
+                Wikipedia Entry
+            </button>
+        </a>
+    </p>
+    <p>
+        <a href="https://www.{{country.name}}.com">
+            <button class="button">
+                {{country.name}}.com
+            </button>
+        </a>
+    </p>
 </section>
 
 {% endblock %}

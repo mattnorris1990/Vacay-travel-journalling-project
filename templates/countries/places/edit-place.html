@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<form action="/countries/places/{{ place.id }}/edit" method="post">
-    <div>
+<heading id = "show-title">
+  <h2>
+    Edit Place
+  </h2>
+</heading>
+<div class="add-container">
+<form action="/countries/places/{{ place.id }}/edit" method="post" class="add-form">
+    <div id ="name-title">
       <label for="place_name">Place name:</label>
-      <input type="text" id="place_name" name="place_name" placeholder="Place name" required autofocus>
+      <input type="text" id="place_name" name="place_name" value="{{place.name}}" required autofocus>
     </div>
   
     <div>
@@ -13,7 +18,7 @@
         <input type="url" id="image" name="image">
     </div>
   
-    <button type="submit">Update Place</button>
+    <button type="submit" button="button">Update Place</button>
   
   </form>
 

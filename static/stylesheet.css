@@ -11,6 +11,13 @@ a {
     font-weight: 600;
 }
 
+hr {
+    border: 3px solid #56ABA1;
+    border-radius: 5px;
+    width: 80%;
+    margin-top: 0;
+}
+
 .header-container {
     background-color: #56ABA1;
     margin: 0;
@@ -38,10 +45,10 @@ a {
 body {
     background-image: url('/static/images/bg-tile.jpg');
     background-repeat: repeat;
-    /* background-color: #F4F4F2; */
     margin: 0;
     font-family: 'Nunito', sans-serif;
     color: #525050;
+    margin-bottom: 5%;
 }
 
 .home-container {
@@ -163,13 +170,21 @@ body {
 
 .block-button {
     background-color: #F1D3C8;
-    border: 2px solid #8B8B8B;
+    border: 0px solid #8B8B8B;
     border-radius: 10px;
     margin: 7%;
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
     color: #525050;
 }
+
+.block-button:hover {
+    background-color: #00D9D1; 
+}
+
+.block-button:active {
+    background-color: #ef8860;
+} 
 
 .main-image-container {
     max-width: 100%;
@@ -238,15 +253,16 @@ body {
 
 #place-name-visited-container {
     display: flex;
-    flex-wrap: nowrap;
-    align-content: flex-start;
-    align-items: flex-start;
-    gap: 5%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     background-color:#E59A8E;
     margin-bottom: 5px;
     padding: 7%;
-    border-radius: 10px;
+    border-radius: 10px; 
 }
+
 
 #entry-list {
     margin: 0px;
@@ -331,4 +347,46 @@ input[type='text'], input[type='URL'], select {
     border: 2px solid #8B8B8B;
     border-radius: 10px;
     padding: 10px;
+}
+
+.add-entry-container {
+    padding: 3%;
+    margin: auto;
+    width: 40%;
+    white-space: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E59A8E;
+    border-radius: 20px;
+    
+    
+}
+
+/* input {
+    overflow: scroll;
+
+} */
+
+input[type='textarea'] {
+    background-color: #00D9D1;
+    border: 2px solid #8B8B8B;
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    height: 500px;
+    overflow-wrap: break-word;
+    
+}
+
+.country-links-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1px;
+}
+.country-links {
+    margin-top: 1px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
