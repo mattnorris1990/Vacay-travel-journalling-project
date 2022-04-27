@@ -14,19 +14,19 @@ country_repository.delete_all()
 
 # TEST COUNTRIES
 
-country1 = Country("France", "images/placeholder_country_image.jpg")
+country1 = Country("France", "images/placeholder_country_image.jpg", "Europe")
 country_repository.save(country1)
 
-country2 = Country("Spain", "images/placeholder_country_image.jpg")
+country2 = Country("Spain", "images/placeholder_country_image.jpg", "Europe")
 country_repository.save(country2)
 
-country3 = Country("Germany", "images/placeholder_country_image.jpg")
+country3 = Country("Germany", "images/placeholder_country_image.jpg", "Europe")
 country_repository.save(country3)
 
-country4 = Country("USA", "images/placeholder_country_image.jpg")
+country4 = Country("USA", "images/placeholder_country_image.jpg", "North America")
 country_repository.save(country4)
 
-country5 = Country("Bulgaria", "images/placeholder_country_image.jpg")
+country5 = Country("Bulgaria", "images/placeholder_country_image.jpg", "Europe")
 country_repository.save(country5)
 
 # TEST PLACES

@@ -29,7 +29,7 @@ hr {
     box-shadow: 0px 1px 5px rgba(107,144,140,50); 
 }
 
-.footer-container {
+/* .footer-container {
     background-color: #56ABA1;
     margin: 0;
     padding: 0;
@@ -41,7 +41,7 @@ hr {
     margin-top: 0px;
     box-shadow: 0px -1px 5px rgba(107,144,140,30); 
 
-}
+} */
 
 #logo {
     margin: 0;
@@ -222,7 +222,7 @@ body {
 } 
 
 .main-image-container {
-    max-width: 100%;
+    max-width: auto;
     height: 300px;
     white-space: nowrap;
     overflow: hidden;
@@ -336,6 +336,7 @@ body {
     padding: 3%;
     margin: auto;
     width: 25%;
+    margin-bottom: 14%;
     white-space: wrap;
     display: flex;
     justify-content: center;

@@ -16,7 +16,7 @@ CREATE TABLE places (
     name VARCHAR(100),
     visited BOOLEAN,
     image VARCHAR(255),
-    country_id INT NOT NULL REFERENCES countries(id)
+    country_id INT NOT NULL REFERENCES countries(id) ON DELETE CASCADE
 );
 
 CREATE TABLE country_entries (
@@ -25,7 +25,7 @@ CREATE TABLE country_entries (
     text_entry TEXT,
     image VARCHAR(255),
     date_stamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    country_id INT NOT NULL REFERENCES countries(id)
+    country_id INT NOT NULL REFERENCES countries(id) ON DELETE CASCADE
 );
 
 CREATE TABLE place_entries (
@@ -34,5 +34,5 @@ CREATE TABLE place_entries (
     text_entry TEXT,
     image VARCHAR(255),
     date_stamp TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    place_id INT NOT NULL REFERENCES places(id)
+    place_id INT NOT NULL REFERENCES places(id) ON DELETE CASCADE
 );
