@@ -288,7 +288,7 @@ body {
 
 #place-name-visited-container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
     gap: 10px;
