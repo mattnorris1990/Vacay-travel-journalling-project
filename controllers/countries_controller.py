@@ -1,6 +1,6 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import country_repository, place_repository, country_entry_repository
-from models.country import Country, check_continent, check_visit_status_false, check_visit_status_true, update_country_visit_status
+from models.country import *
 from models.place import Place
 import controllers.places_controller as places_controller
 
