@@ -2,6 +2,7 @@ from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import country_repository, place_repository, country_entry_repository
 from models.country import *
 from models.place import Place
+from services.services import *
 import controllers.places_controller as places_controller
 
 countries_blueprint = Blueprint("countries", __name__)
