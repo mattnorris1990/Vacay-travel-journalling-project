@@ -28,3 +28,10 @@ def check_continent(countries, continent):
         if country.continent == continent:
             countries_list.append(country)
     return countries_list
+
+def update_place_visit_status(place):
+    if place.visited == False:
+        place.visited = True
+    else: 
+        place.visited = False
+    return place

@@ -1,7 +1,8 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import country_repository, place_repository, place_entry_repository
 from models.country import Country
-from models.place import Place, update_place_visit_status
+from services.services import *
+from models.place import Place
 
 places_blueprint = Blueprint("countries/places", __name__)
 
