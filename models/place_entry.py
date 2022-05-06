@@ -1,4 +1,4 @@
-class Place_Entry:
+class PlaceEntry:
 
     def __init__(self, input_title, input_text, input_image,input_place, date_stamp = None, id = None):
         self.title = input_title

@@ -1,6 +1,6 @@
 from db.run_sql import run_sql
 
-from models.country_entry import Country_Entry
+from models.country_entry import CountryEntry
 from models.country import Country
 import repositories.country_repository as country_repository
 
@@ -25,7 +25,7 @@ def select_all():
 
     for row in results:
         country = country_repository.select(row['country_id'])
-        entry = Country_Entry(row['title'], row['text_entry'], row['image'], country, row['date_stamp'], row['id'])
+        entry = CountryEntry(row['title'], row['text_entry'], row['image'], country, row['date_stamp'], row['id'])
         entries.append(entry)
     return entries
 
@@ -38,7 +38,7 @@ def select(id):
     if len(results) > 0:
         result = results[0]
         country = country_repository.select(result['country_id'])
-        entry = Country_Entry(result['title'], result['text_entry'], result['image'], country, result['date_stamp'], result['id'])
+        entry = CountryEntry(result['title'], result['text_entry'], result['image'], country, result['date_stamp'], result['id'])
         return entry
 
 

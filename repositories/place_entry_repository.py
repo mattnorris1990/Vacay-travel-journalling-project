@@ -1,6 +1,6 @@
 from db.run_sql import run_sql
 
-from models.place_entry import Place_Entry
+from models.place_entry import PlaceEntry
 from models.place import Place
 import repositories.place_repository as place_repository
 
@@ -25,7 +25,7 @@ def select_all():
 
     for row in results:
         place = place_repository.select(row['place_id'])
-        entry = Place_Entry(row['title'], row['text_entry'], row['image'], place, row['date_stamp'], row['id'])
+        entry = PlaceEntry(row['title'], row['text_entry'], row['image'], place, row['date_stamp'], row['id'])
         entries.append(entry)
     return entries
 
@@ -38,7 +38,7 @@ def select(id):
     if len(results) > 0:
         result = results[0]
         place = place_repository.select(result['place_id'])
-        entry = Place_Entry(result['title'], result['text_entry'], result['image'], place, result['date_stamp'], result['id'])
+        entry = PlaceEntry(result['title'], result['text_entry'], result['image'], place, result['date_stamp'], result['id'])
         return entry
 
 def delete_all():

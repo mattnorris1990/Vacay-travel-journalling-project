@@ -1,7 +1,7 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import country_repository, place_repository, country_entry_repository, place_entry_repository
 from services.services import *
-from models.country_entry import Country_Entry
+from models.country_entry import CountryEntry
 from models.country import Country
 
 countryentry_blueprint = Blueprint("countries/entries", __name__)
@@ -25,7 +25,7 @@ def add_country_entry_form():
 
     text = request.form['entry_text']
 
-    country_entry_object = Country_Entry(title, text, image, country)
+    country_entry_object = CountryEntry(title, text, image, country)
     country_entry_repository.save(country_entry_object)
 
     return redirect (f'/countries/{ country_id }')
@@ -59,7 +59,7 @@ def edit_country_entry_form(id):
     image = edit_entry_check_for_image_input(request.form['image'], entry)
     text = request.form['entry_text']
 
-    entry_object = Country_Entry(title, text, image, entry.country, entry.date_stamp, id)
+    entry_object = CountryEntry(title, text, image, entry.country, entry.date_stamp, id)
     country_entry_repository.update(entry_object)
 
     return redirect(f'/countries/entries/{id}')
