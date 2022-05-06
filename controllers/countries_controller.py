@@ -42,10 +42,7 @@ def add_country_page():
 @countries_blueprint.route("/addcountry", methods = ['POST'])
 def add_country():
     name = request.form['country_name']
-    if len(request.form['image']) > 0:
-        image = request.form['image']
-    else:
-        image = "placeholder_country_image"
+    image = new_country_check_for_image_input(request.form['image'])
     continent = request.form['continent']
     
     country_object = Country(name, image, continent)
@@ -69,10 +66,11 @@ def edit_country_page(id):
 def edit_country_form(id):
     country = country_repository.select(id)
     name = request.form['country_name']
-    if len(request.form['image']) > 0:
-        image = request.form['image']
-    else:
-        image = country.image
+    # if len(request.form['image']) > 0:
+    #     image = request.form['image']
+    # else:
+    #     image = country.image
+    image = edit_country_check_for_image_input(request.form['image'], country)
     country_object = Country(name, image, country.continent, country.visited, id)
     country_repository.update(country_object)
     return redirect(f'/countries/{ country_object.id }')

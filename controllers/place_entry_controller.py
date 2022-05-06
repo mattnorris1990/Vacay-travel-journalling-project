@@ -1,6 +1,7 @@
 from flask import Flask, render_template, Blueprint, request, redirect, url_for
 from repositories import place_repository, place_entry_repository
 from models.place_entry import Place_Entry
+from services.services import *
 from models.place import Place
 from models.country import Country
 
@@ -19,10 +20,7 @@ def add_place_entry_form():
     place_id = request.form['place_id']
     place = place_repository.select(place_id)
 
-    if len(request.form['image']) > 0:
-        image = request.form['image']
-    else:
-        image = "placeholder_entry_image"
+    image = new_entry_check_for_image_input(request.form['image'])
 
     text = request.form['entry_text']
 
@@ -55,10 +53,7 @@ def edit_place_entry_page(id):
 def edit_place_entry_form(id):
     entry = place_entry_repository.select(id)
     title = request.form['entry_title']
-    if len(request.form['image']) > 0:
-        image = request.form['image']
-    else:
-        image = entry.image
+    image = edit_entry_check_for_image_input(request.form['image'], entry)
     text = request.form['entry_text']
 
     entry_object = Place_Entry(title, text, image, entry.place, entry.date_stamp, id)

@@ -33,13 +33,11 @@ hr {
     background-color: #56ABA1;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
     height: 75px;
+    position: fixed;
     margin-top: 0px;
-    box-shadow: 0px -1px 5px rgba(107,144,140,30); 
+    box-shadow: 0px -1px 5px rgba(107,144,140,30);
+    bottom: 0; 
 
 } */
 
@@ -95,11 +93,19 @@ body {
     
 }
 
+.home-main {
+    height: auto;
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+
+}
+
 #home-buttons {
     padding: 0;
     display: flex;
     justify-content: center;
-    margin-bottom: 15%
+    /* margin-bottom: 15%; */
 }
 
 #all-button {

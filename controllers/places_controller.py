@@ -14,10 +14,7 @@ def add_place_page():
 @places_blueprint.route('/countries/places/addplace', methods = ['POST'])
 def add_place_form():
     name = request.form['place_name']
-    if len(request.form['image']) > 0:
-        image = request.form['image']
-    else:
-        image = "placeholder_place_image"
+    image = new_place_check_for_image_input(request.form['image'])
     
     country_id = request.form['country_id']
     country = country_repository.select(country_id)
@@ -50,10 +47,7 @@ def edit_place_page(id):
 def edit_place_form(id):
     place = place_repository.select(id)
     name = request.form['place_name']
-    if len(request.form['image']) > 0:
-        image = request.form['image']
-    else:
-        image = place.image
+    image = edit_place_check_for_image_input(request.form['image'], place)
 
     country_id = place.country.id
     country = country_repository.select(country_id)
