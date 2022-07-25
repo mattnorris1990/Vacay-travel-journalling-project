@@ -1,17 +1,32 @@
-# Vacay - a travel bucket list journaling python project
 
-Description: This is my first project as part of the CodeClan professional software development course. The brief was:
+# Vacay: a travel journalling app
 
-> ## Build an app to track someone's travel adventures.
+A full stack app that allows a user to create new countries and locations and add journal entries, wish-lists and memories.
+The user can mark when a country or location has then been visited.
 
-> MVP:
-> The app should allow the user to track countries and cities they want to visit and those they have visited.
-> The user should be able to create and edit countries
-> Each country should have one or more cities to visit
-> The user should be able to create and delete entries for cities
-> The app should allow the user to mark destinations as visited or still to see
 
-The app lets a user add countries, places to those countries, and journal entries at both the country and place level. 
-The user is able to add, update and delete countries, place and entries.
 
-This project was limited to using **Python, Flask, PostgreSQL, CSS** and **Jinja.**
+
+## Features
+
+- add/edit/remove countries, locations and journal entries
+- mark countries and locations as visited/unvisited
+
+
+## Installation
+
+Install my-project with npm
+
+```bash
+  Your local machine terminal:
+- git clone git@github.com:mattnorris1990/Vacay-travel-journalling-project.git
+- createdb project_1.sql (create db)
+- flask run
+```
+    
+## Tech Stack
+
+**Client:** Python, Jinja, CSS
+
+**Server:** Flask, PostgreSQL
+
